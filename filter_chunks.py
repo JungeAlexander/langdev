@@ -16,5 +16,12 @@ def get_max_absolute_signal(wav_file):
     return np.abs(data).max()
 
 for wav_file in glob(glob_pattern):
-    print(wav_file)
-    print(get_max_absolute_signal(wav_file))
+    # print(wav_file)
+    max_signal = get_max_absolute_signal(wav_file)
+    # print(max_signal)
+    if max_signal < 20000:
+        os.remove(wav_file)
+    else:
+        # TODO send to S3
+        # TODO convert to mp3 before that?
+        pass
