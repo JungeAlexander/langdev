@@ -1,2 +1,3 @@
 .venv/
-data/20200605/*.wav
+data/**/*.wav
+.vscode/settings.json
