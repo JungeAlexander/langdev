@@ -17,3 +17,9 @@ pip install scipy-1.4.1-cp37-cp37m-linux_armv7l.whl
 
 rm numpy-1.18.5-cp37-cp37m-linux_armv7l.whl scipy-1.4.1-cp37-cp37m-linux_armv7l.whl
 ```
+
+Crontab:
+
+```
+*/5 * * * * /bin/bash /home/ajunge/code/langdev/filter_chunks.sh >/dev/null 2>&1
+```
