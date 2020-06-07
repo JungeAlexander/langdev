@@ -1,5 +1,6 @@
 from datetime import datetime
 from glob import glob
+import subprocess
 import os
 
 import numpy as np
@@ -22,6 +23,8 @@ for wav_file in glob(glob_pattern):
     if max_signal < 20000:
         os.remove(wav_file)
     else:
-        # TODO send to S3
-        # TODO convert to mp3 before that?
-        pass
+        mp3_file = wav_file[:-len(".wav")] + ".mp3"
+        subprocess.run(f"lame --preset standard {wav_file} {mp3_file}", shell=True, check=True)
+        os.remove(wav_file)
+        # TODO send mp3 to S3
+        # TODO if s3 transfer good, delete mp3
