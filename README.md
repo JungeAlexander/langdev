@@ -23,3 +23,11 @@ Crontab:
 ```
 */5 * * * * /bin/bash /home/ajunge/code/langdev/filter_chunks.sh >/dev/null 2>&1
 ```
+
+Running recording (best in tmux):
+
+```
+source .venv/bin/activate
+
+python record_chunks.py
+```
