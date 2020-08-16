@@ -69,7 +69,7 @@ for wav_file in glob(glob_pattern):
         # mp3_file = data/20200801/20200801-12-07-50.mp3
         chunk_prefix = mp3_prefix + "data/processed/non_silent_splits/" + mp3_file.split("/")[1] + "/" + mp3_file.split("/")[2][: -len(".mp3")]
         subprocess.run(
-            f"lame --preset standard {wav_file} {mp3_file}", shell=True, check=True
+            f"lame --preset standard {wav_file} {mp3_file} 1>/dev/null 2>/dev/null", shell=True, check=True
         )
         mp3_segment = AudioSegment.from_mp3(mp3_file)
         mp3_len = mp3_segment.duration_seconds  # in ms
